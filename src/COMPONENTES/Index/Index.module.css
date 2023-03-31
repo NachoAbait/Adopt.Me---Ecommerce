@@ -1,0 +1,132 @@
+.container{
+    background-color: #063455;
+    display: flex;
+    height: 1320px;
+    max-height: auto;
+    border: solid black;
+}
+
+.barraLateral{
+    background-color: #063455; 
+    width: 23.2%;
+    height: 1000px;
+    text-align: center;
+}
+
+.logo{
+    background-color:  #063455;
+    height: 100px;
+    width: 60%;
+    position: relative;
+    left: 45px;
+    top: 20px;
+    border: solid #EB274B 5px ;
+    border-radius: 15px;
+}
+
+.commerce{
+    position: absolute;
+    font-style: oblique;
+    width: 50%;
+    right: 0;
+    top: 37%;
+    font-size: medium;
+    color: white;
+}
+
+.adopt{
+    position: absolute;
+    width: 100%;
+    font-style: oblique;
+    color: #EB274B;
+}
+
+.item{
+    font-weight: 600;
+    font-size:large;
+    font-family:Arial, Helvetica, sans-serif;
+    background-color:  #063455;
+    width: 81%;
+    height: 40px;
+    left: 60px;
+    position: relative;
+    text-align: left;
+    padding-top: 5%;
+    cursor: pointer;
+}
+
+.centro{
+    background-color:#eeca88;
+    border-radius: 20px;
+    position: relative;
+    height: 1270px;
+    width: 79%;
+    right: 50px;
+    top: 30px;
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.item:hover{
+    background-color: #eeca88; 
+    border-radius: 20px 0px 0px 20px;
+}
+
+.boton{
+    font-weight: 600;
+    font-size:large;
+    font-family:Arial, Helvetica, sans-serif;
+    width: 30%;
+    height: 40px;
+    left: 95px;
+    position: relative;
+    padding-top: 5%;
+    cursor: pointer;
+}
+
+
+.boton:focus {
+    box-shadow: rgba(72, 35, 7, .46) 0 0 0 4px, -6px 8px 10px rgba(81,41,10,0.1), 0px 2px 2px rgba(81,41,10,0.2);
+}
+
+.boton:hover {
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-4px);
+    background-color: white;
+    color: black;
+    border-radius: 50px;
+  }
+
+  .boton:active {
+    background-color: #f3f4f6;
+    box-shadow: -1px 2px 5px rgba(81,41,10,0.15),0px 1px 1px rgba(81,41,10,0.15);
+    transform: translateY(0.125rem);
+  }
+
+ .tarjeta{
+    position: relative;
+    width: 32.7%;
+    height: 393px;
+    background-color: aqua;
+    border: solid black;
+ }
+
+ .publicidad{
+    background-color: #eeca88;
+    width: 350px;
+    height: 400px;
+    margin-top: 60px;
+    margin-left: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: larger;
+    font-weight: 600;
+ }
+
+ .paginado{
+    background-color: #71737746;
+    width: 100%;
+    height: 70px;
+ }
