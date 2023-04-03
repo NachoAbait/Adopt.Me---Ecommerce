@@ -8,10 +8,10 @@
 }
 
 .barra{
-    background-color: rgb(105, 102, 105);
+    background-color: #eeca88;
     position: relative;
     width: 100%;
-    height: 9%;
+    height: 7%;
     text-align: center;
 }
 
@@ -21,6 +21,7 @@
     margin: 0 auto;
     border-radius: 20px;
     width: 90%;
+    margin-top: 30px;
 }
 
 .fotos{
@@ -59,8 +60,7 @@
 }
 
 .precio{
-    border-radius: 20px;
-    border: solid black;
+
     width: 40%;
     position: absolute;
     left: 30px;
@@ -71,13 +71,20 @@
 }
 
 .metodo{
-    border-radius: 20px;
-    border: solid black;
+    color:#063455 ;
     width: 40%;
     position: absolute;
     left: 30px;
     top: 280px;
+    cursor: pointer;
 }
+
+.metodo:hover {
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-4px);
+    border-radius: 50px;
+
+  }
 
 .stock{
     border-radius: 20px;
@@ -98,7 +105,9 @@
 }
 
 .boton{
-    border-radius: 20px;
+    color: white;
+    background-color: #EB274B;
+    border-radius: 50px;
     border: solid black;
     width: 50%;
     margin: 0 auto;
@@ -106,8 +115,27 @@
     top: 300px;
     margin-bottom: 20px;
     margin-top: 30px;
+    cursor: pointer;
 }
 
+
+.boton:focus {
+    box-shadow: rgba(72, 35, 7, .46) 0 0 0 4px, -6px 8px 10px rgba(81,41,10,0.1), 0px 2px 2px rgba(81,41,10,0.2);
+}
+
+.boton:hover {
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-4px);
+    background-color: #EB274B;
+    color: white;
+    border-radius: 50px;
+  }
+
+  .boton:active {
+    background-color: #f3f4f6;
+    box-shadow: -1px 2px 5px rgba(81,41,10,0.15),0px 1px 1px rgba(81,41,10,0.15);
+    transform: translateY(0.125rem);
+  }
 /*
 .boton{
     font-weight: 600;

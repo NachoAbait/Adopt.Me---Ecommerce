@@ -68,7 +68,8 @@ export default function Detalle() {
                         <h2>Ver metodos de pago</h2>
                     </div>
                     <div className={css.stock}>
-                        <h2>Stock: {detalle.stock}</h2>
+                        <h2>Stock:{detalle.stock}</h2>
+                    
                     </div>
                     <div className={css.cantidad}>
                         <h2>Talle: {detalle.talle} </h2>
