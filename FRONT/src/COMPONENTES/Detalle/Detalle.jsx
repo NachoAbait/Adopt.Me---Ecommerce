@@ -8,20 +8,25 @@ export default function Detalle() {
     const { id } = useParams()
     const dispatch = useDispatch()
 
-    const detalle = useSelector((state) => state.detalleProducto)
-    const imagenes = detalle.img 
-
     useEffect(() => {
         dispatch(getDetalle(id))
-    },[dispatch])
+    }, [dispatch])
+
+  
+    const detalle = useSelector((state) => state.detalleProducto)
+    console.log(detalle)
+
+    const imagenes = detalle.img 
+    const colores = detalle.colores
+    console.log("estos son los colores")
+    console.log(colores)
+
+    const[colorActual, setColorActual] = useState( "rojo")
+    console.log("estado color:")
+    console.log(colorActual)
 
     const [currentImg, setCurrentImg] = useState(0);
 
-    console.log("este es el arreglo de img")
-    console.log(imagenes)
-
-    console.log("esta es la img actual")
-    console.log(currentImg)
 
     const nextImg = () => {
         if (currentImg ===  imagenes.length - 1) {
@@ -39,6 +44,12 @@ export default function Detalle() {
             }
     };
     
+
+    const handleColorActual = (e) => {
+        e.preventDefault()
+        setColorActual(e.target.value)
+    }
+
 
     return (
         <div className={css.container}>
@@ -67,12 +78,38 @@ export default function Detalle() {
                     <div className={css.metodo}>
                         <h2>Ver metodos de pago</h2>
                     </div>
-                    <div className={css.stock}>
-                        <h2>Stock:{detalle.stock}</h2>
+                    <div className={css.color}>
+                        <div className={css.colorcolor}>
+                            <h2>Color:</h2>
+                        </div>
+                        <div className={css.color_desplegable}>
+                            <select onChange={(e) => handleColorActual(e)} className={css.option}>
+                                {colores && colores.map((color) => {
+                                    return <option value={color.color} className={css.option}>{color.color}</option>
+                                })}
+                                
+                        </select>
+                        </div>
+                        
                     
                     </div>
                     <div className={css.cantidad}>
-                        <h2>Talle: {detalle.talle} </h2>
+                        <div className={css.talles}>
+                            <h2>Talles:</h2>
+                        </div>
+                        <div className={css.talles_talles}>
+                            {detalle.colores && detalle.colores.map((e) => {
+                                if (e.color === colorActual) {
+                                    return e && e.talle_Stock.map((talle) => {
+                                        return <div className={css.container_boton}>
+                                            <button className={css.boton_talle}>{talle.talle}</button>
+                                            &nbsp; &nbsp;
+                                            </div>
+                                    })
+                                }
+                            })} 
+                        </div>
+                        
                     </div>
                     <div className={css.boton}>
                         <h2>Comprar ahora</h2>

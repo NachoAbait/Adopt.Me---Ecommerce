@@ -61,6 +61,7 @@ export default function Index() {
         setPaginaActual(1)
     }
 
+    
     return (
         <div>
             <div className={css.container}>

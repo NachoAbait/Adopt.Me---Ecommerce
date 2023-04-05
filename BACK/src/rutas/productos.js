@@ -5,16 +5,15 @@ require("../db");
 
 router.post("/", async (req, res) => {
   try {
-    const { titulo, id, precio, descripcion, stock, img, talle, tipo} = req.body;
+    const { titulo, id, precio, descripcion, colores, img, tipo } = req.body;
     const producto = new ProductosModel({
       titulo,
       id,
       precio,
       descripcion,
-      stock,
+      colores,
       img,
-      talle,
-      tipo
+      tipo,
     });
     const productoSaved = await producto.save();
     console.log(productoSaved);
@@ -44,6 +43,5 @@ router.get("/:id", async (req, res) => {
     res.status(400).json({ msg: "No se encontro ningun producto con ese id" });
   }
 });
-
 
 module.exports = router;
