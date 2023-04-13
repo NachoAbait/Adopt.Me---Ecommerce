@@ -97,6 +97,7 @@
 }
 
 .colorcolor{
+    border-radius: 20px;
     position: absolute;
     width: 40%;
     font-size: larger;
@@ -104,21 +105,23 @@
 }
 
 .color_desplegable{
+    border-radius: 20px;
     position: absolute;
     width: 40%;
     height: 100%;
     left: 120px;
     top: 15px;
+    cursor: pointer;
 }
 
 .option{
+    border-radius: 20px;
     width: 100%;
     height: 60%;
     text-align: center;
     font-size: large;
     font-weight: bold;
-   
-
+    cursor: pointer;
 }
 
 .cantidad{
@@ -217,13 +220,32 @@
 }
 
 .boton_talle{
+    border-radius: 10px;
     height: 40%;
+    width: 40px;
     position: relative;
     top: 27px;
     font-size: larger;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .container_boton{
     display:inline
+}
+
+.anterior{
+    height: 40px;
+    width: 40px;
+    font: bold;
+    font-size: x-large;
+    cursor: pointer;
+}
+
+.siguiente{
+    height: 40px;
+    width: 40px;
+    font: bold;
+    font-size: x-large;
+    cursor: pointer;
 }

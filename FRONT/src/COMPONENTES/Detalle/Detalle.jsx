@@ -50,6 +50,29 @@ export default function Detalle() {
         setColorActual(e.target.value)
     }
 
+    const verificarStock = (talle) => {
+        let colorete = undefined
+        let tallete = undefined
+
+        colores.map((colores) => {
+            if (colores.color === colorActual) {
+                colorete = colores
+                return(colorete)
+            }
+        })
+        console.log("este es el colorete")
+        console.log(colorete)
+
+        colorete.talle_Stock.map((talleStock) => { 
+            if (talleStock.talle === talle) {
+                tallete = talleStock
+            }
+        })
+        console.log("este es el tallete")
+        console.log(tallete)
+        
+        return (tallete.stock>0 ? false : true )
+    }
 
     return (
         <div className={css.container}>
@@ -64,7 +87,7 @@ export default function Detalle() {
                         <img src={detalle.img && detalle.img[currentImg]} alt="producto" />
                     </div>
                     <br />
-                    <button className={css.anterior} onClick={prevImg}>&#10094;</button>
+                    <button className={css.anterior} onClick={prevImg}>&#10094;</button> &nbsp;&nbsp;
                     <button className={css.siguiente} onClick={nextImg}>&#10095;</button>
                 </div>
          
@@ -102,7 +125,7 @@ export default function Detalle() {
                                 if (e.color === colorActual) {
                                     return e && e.talle_Stock.map((talle) => {
                                         return <div className={css.container_boton}>
-                                            <button className={css.boton_talle}>{talle.talle}</button>
+                                            <button disabled={verificarStock(talle.talle)} className={css.boton_talle}>{talle.talle}</button>
                                             &nbsp; &nbsp;
                                             </div>
                                     })
@@ -121,7 +144,7 @@ export default function Detalle() {
 
                 </div>
             </div>    
-
+            br
             <div className={css.descripcion}>
                 <div className={css.desc}>
                     <h1>{detalle.descripcion}</h1>
