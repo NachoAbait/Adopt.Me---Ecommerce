@@ -13,6 +13,7 @@
     width: 100%;
     height: 7%;
     text-align: center;
+    display: flex
 }
 
 .mini{
@@ -248,4 +249,76 @@
     font: bold;
     font-size: x-large;
     cursor: pointer;
+}
+
+.back{
+
+    width: 80px;
+    display: inline; 
+    position: absolute;
+    height: 100%;
+    left: 20px;
+}
+
+.perfil{
+
+    width: 80px;
+    display: inline; 
+    position: absolute;
+    height: 100%;
+    margin: 0 auto;
+    left: 950px;
+}
+
+.carrito{
+    position: absolute;
+    width: 80px;
+    right: 20px;
+    height: 100%;
+}
+
+.iconoPerfil{
+   position: relative;
+   top: 25px;
+   left: 8px;
+   width: 50px;
+   height: 50px;
+   cursor: pointer;
+}
+
+
+.iconoPerfil:hover {
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-4px);
+    border-radius: 20px;
+}
+
+.iconoCarrito{
+    position: relative;
+   top: 25px;
+   left: 8px;
+   width: 50px;
+   height: 50px;
+   cursor: pointer;
+}
+
+.iconoCarrito:hover{
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-4px);
+    border-radius: 20px;
+}
+
+.iconoBack{
+    position: relative;
+    top: 25px;
+    left: 8px;
+    width: 50px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.iconoBack:hover{
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-4px);
+    border-radius: 20px;
 }

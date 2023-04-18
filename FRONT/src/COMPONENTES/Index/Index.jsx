@@ -30,12 +30,7 @@ export default function Index() {
     const indicePrimerProducto = indiceUltimoProducto - ProductosPorPagina
     const productosActual = Productos.slice(indicePrimerProducto, indiceUltimoProducto)
 
-    
-    if (!Productos || Productos.length === 0) {
-        return (
-            <Loading></Loading>
-        )
-    }
+
 
     const paginado = (numeroDePaginas) => { 
         setPaginaActual(numeroDePaginas)
@@ -122,11 +117,13 @@ export default function Index() {
                         <Paginado ProductosPorPagina={ProductosPorPagina} Productos={Productos} paginado={paginado} />
                     </div>
                     
-                        {productosActual &&  productosActual.map(p => {
+                        {productosActual ?  productosActual.map(p => {
                             return (
                                 <Tarjeta titulo={p.titulo} id={p.id} precio={p.precio} descripcion={p.descripcion} img={p.img} stock={p.stock} talle={p.talle} tipo={p.tipo} />    
                             )
-                        })}
+                        }) : (
+                            <Loading></Loading>
+                        )}
                    
                 </div>
                 
