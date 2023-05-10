@@ -3,5 +3,6 @@ export const GET_DETALLE = "GET_DETALLE";
 export const FILTRAR_ROPA = "FILTRAR_ROPA"
 export const FILTRAR_CORREA = "FILTRAR_CORREA"
 export const FILTRAR_RASTREADOR = "FILTRAR_RASTREADOR"
-
-
+export const SET_USER = "SET_USER"
+export const CLEAR_USER_DATA = "CLEAR_USER_DATA"
+export const GET_USERS = "GET_USERS"

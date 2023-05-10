@@ -5,6 +5,9 @@ import {
   FILTRAR_CORREA,
   FILTRAR_RASTREADOR,
   FILTRAR_ROPA,
+  SET_USER,
+  CLEAR_USER_DATA,
+  GET_USERS,
 } from "../ACTION";
 
 //ESTADOS GLOBALES
@@ -12,6 +15,8 @@ const initialState = {
   productos: [],
   productosCopia: [],
   detalleProducto: [],
+  userData: [],
+  users: [],
 };
 
 //ROOT REDUCER
@@ -62,5 +67,31 @@ export default function rootReducer(state = initialState, action) {
         ...state,
         productos: filtradoRopa
       };
+
+      case SET_USER:
+      return { ...state, 
+        userData: action.payload 
+      };
+
+      case CLEAR_USER_DATA:
+        return {
+          ...state,
+          userData: null,
+        }
+
+        case GET_USERS:
+      return {
+        ...state,
+        users: action.payload,
+      };
+
+      case "getDetalleUsuario":
+      return {
+        ...state,
+        detalleUsuario: action.payload,
+      };
+
+      default:
+        return state;
   }
 }

@@ -19,10 +19,17 @@ app.use(function(req, res, next) {
 
 // MODELOS
 const productoModel = require("./src/modelos/productos")
+const usuarioModel = require("./src/modelos/usuarios")
 
 //RUTAS
 const rutasProducto = require("./src/rutas/productos")
+const rutasUsuario = require("./src/rutas/usuarios")
+const loginUsersLogin = require("./src/rutas/authRoutes");
+
 app.use("/productos", rutasProducto)
+app.use("/usuarios", rutasUsuario)
+app.use("/login", loginUsersLogin)
+
 
 //DATABASE
 const mongoose = require("mongoose");
