@@ -1,22 +1,28 @@
 
 import css from "./Index.module.css"
-import React, { useEffect, useState } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { Link } from "react-router-dom"
 //ACTIONS
 import getProductos from "../../ACTION/getProductos"
 import filtrarCorrea from "../../ACTION/filtrarCorrea"
 import filtrarRastreador from "../../ACTION/filtrarRastreador"
 import filtrarRopa from "../../ACTION/filtrarRopa"
+import getDetalleUsuario from "../../ACTION/getDetalleUsuario"
 //COMPONENTES
 import Loading from "../Loading/Loading"
 import Tarjeta from "../Tarjeta/Tarjeta"
 import Paginado from "../Paginado/Paginado"
 
+import { Button, Avatar } from '@mui/material';
+import { Person } from '@mui/icons-material';
+import { LoginContext } from "../Login/loginProvider"
+import { useNavigate } from "react-router-dom"
+
 
 export default function Index() {
     
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
     
     useEffect(() => {
         dispatch(getProductos())
@@ -29,6 +35,18 @@ export default function Index() {
     const indiceUltimoProducto = paginaActual * ProductosPorPagina
     const indicePrimerProducto = indiceUltimoProducto - ProductosPorPagina
     const productosActual = Productos.slice(indicePrimerProducto, indiceUltimoProducto)
+    const { isLoggedIn, logout, setLoggedIn } = useContext(LoginContext);
+    const storedUser = JSON.parse(localStorage.getItem('user'));
+    const id = storedUser[0]._id
+
+    useEffect(() => {
+        const authToken = localStorage.getItem('token');
+        JSON.parse(localStorage.getItem('user'));
+        dispatch(getDetalleUsuario(id));
+        if (authToken) {
+          setLoggedIn(true);
+        }
+      }, [dispatch, id, setLoggedIn]);
 
 
 
@@ -56,6 +74,15 @@ export default function Index() {
         setPaginaActual(1)
     }
 
+    
+  
+    const handleLogin = () => {
+        navigate("/login")
+    };
+  
+    const handleLogout = () => {
+      logout();
+    };
  
     
     return (
@@ -68,12 +95,26 @@ export default function Index() {
                     </div>
                     <br /> <br /> <br /> <br />
 
-                    <a href="/login" className={css.boton}>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
-                        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
-                    </svg> 
-                    &nbsp;  Perfil
-                    </a>
+                    <div>
+                    {isLoggedIn ? (
+                        <div style={{ display: 'flex', alignItems: 'center' }}>
+                        <Avatar alt="Avatar" src={storedUser[0].fotoPerfil} />
+                        <span style={{ marginLeft: '8px' }}>{storedUser[0].nombre}</span>
+                        <Button variant="contained" color="primary" onClick={handleLogout} style={{ marginLeft: '8px' }}>
+                            Logout
+                        </Button>
+                        </div>
+                    ) : (
+                        <Button
+                        variant="contained"
+                        color="primary"
+                        startIcon={<Person />}
+                        onClick={handleLogin}
+                        >
+                        Login
+                        </Button>
+                    )}
+                    </div>
 
                     
 
